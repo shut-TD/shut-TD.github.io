@@ -18,7 +18,8 @@
             <guid isPermalink="true">https://shut-td.github.io/%E7%BB%99EXE%E4%B8%8A%E9%94%81/</guid>
             <title>给EXE上锁</title>
             <link>https://shut-td.github.io/%E7%BB%99EXE%E4%B8%8A%E9%94%81/</link>
-            <category term="Reverse" scheme="https://shut-td.github.io/tags/Reverse/" />
+            <category term="免杀" scheme="https://shut-td.github.io/categories/untiVirus/" />
+            <category term="免杀" scheme="https://shut-td.github.io/tags/untiVirus/" />
             <pubDate>Thu, 14 Mar 2024 18:15:25 +0800</pubDate>
             <description><![CDATA[ &lt;pre&gt;&lt;code&gt;在免杀中我们常常会用各种加密手段将shellcode进行变形以达到绕过杀软的静态检测分析，比如说最常见的异或，base64编码，aes，rsa，ecc等，当然静态查杀并不是我们主要要解决的，因为静态查杀是最容易绕过的基本上用异或就可以解决，今天我们的主题是绕过杀软的动态查杀。
 先说说我认为的杀软查杀恶意文件的方法吧，第一种就是静态查杀，只通过搜索其有无恶意软件的静态特征进行查杀，这种是最容易绕过的基本上对恶意代码进行简单的变形就可以绕过了；第二种就是动态查杀，即用一个沙箱去模拟执行你的文件看是否会执行到某些敏感操作上去；第三种是内存查杀和行为监控，这也是最为难绕过的，因为不管你shellcode在执行前是什么样的加载到内存中去就会现出原形从而被检查到，还有在你去执行命令时不可避免的会向外联地址发送数据，这其中的流量特征也是难以更改的因此很容易被捕捉到，这也就是有些我们可以上线但一执行命令就寄了的原因。
