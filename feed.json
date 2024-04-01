@@ -7,6 +7,17 @@
     "home_page_url": "https://shut-td.github.io",
     "items": [
         {
+            "id": "https://shut-td.github.io/%E6%BA%90%E7%A0%81%E5%8F%8D%E7%BC%96%E8%AF%91%E5%8F%8A%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98-CS%E4%BA%8C%E5%BC%80%E7%B3%BB%E5%88%97/",
+            "url": "https://shut-td.github.io/%E6%BA%90%E7%A0%81%E5%8F%8D%E7%BC%96%E8%AF%91%E5%8F%8A%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98-CS%E4%BA%8C%E5%BC%80%E7%B3%BB%E5%88%97/",
+            "title": "源码反编译及搭建问题[CS二开系列]",
+            "date_published": "2024-03-31T18:35:14.000Z",
+            "content_html": "<h3 id=\"源码的反编译及搭建\"><a class=\"anchor\" href=\"#源码的反编译及搭建\">#</a> 源码的反编译及搭建</h3>\n<p>我这里使用的是 jadx 进行的反编译，因此后面会有一些代码上的坑需要注意一下。<br />\n新建如下图的目录结构，并将原始的 CSjar 包放进 cs_bin 即可。</p>\n<p><img data-src=\"https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hoaqyt5couj30me04874r.jpg\" alt=\"\" /></p>\n<p>使用 jadx 反编译完后导出为 graddle 项目至 cs_src 目录中即可获取源码即下图两个文件夹。</p>\n<p><img data-src=\"https://dlink.host/wx1.sinaimg.cn/large/008DfUDOly8hoar1cl14pj30m8036mxd.jpg\" alt=\"\" /></p>\n<p>然后打开 IDEA 新建一个空项目并新建一个 decompiled_src 目录，并将 source 目录复制入 decompiled_src 即可，后续操作参考这篇<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vYXJ0aWNsZXMvd2ViLzM3ODUzMy5odG1s\">二开搭建</span>的文章。</p>\n<p>在这里主要讲下可能是 jadx 反编译的问题导致的反编译后的源代码有些地方会出错需要手动更正一下，这里举几个例子：<br />\n<img data-src=\"https://dlink.host/wx1.sinaimg.cn/large/008DfUDOly8hoar8i6pgnj30mv0a0wg6.jpg\" alt=\"\" /><br />\n这里报错的原型是这段代码：<br />\n<figure class=\"highlight java\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"keyword\">for</span> (Map.Entry entry : <span class=\"built_in\">this</span>.hooks.entrySet())&#123;</span><br><span class=\"line\">\t.......</span><br><span class=\"line\">&#125;</span><br></pre></td></tr></table></figure><br />\n 这里只需要跟进 <code>this.hooks.entrySet()</code>  观察一下返回的类型是什么即可，比如这里跟进之后发现是个 Set 集合，在外面用 Set 集合封装一下在替换即可解决报错，需要注意的是泛型要对齐，再比如下图也是这样。<br />\n<img data-src=\"https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hoar8n7oogj30m20553ze.jpg\" alt=\"\" /></p>\n<p>还有一种报错就是属性报错，跟进那个类里看一下最接近的属性是什么改成什么就行了，还有包括一些明显的逻辑上的错误比如从外面接了参数却使用另一个赋值为空的参数去比较：<br />\n<img data-src=\"https://dlink.host/wx4.sinaimg.cn/large/008DfUDOly8hoarg84tvzj30xq09s3zo.jpg\" alt=\"\" /><br />\n错误原型为第二行多加了 <code>String text2 = &quot;&quot;</code> ，并在 <code>sum += text.charAt(x)</code>  这段代码变成了 <code>sum += text2.charAt(x)</code>  修正过来即可，反正这类逻辑上的代码问题还是稍微注意一下就行。</p>\n<p>至此环境基本搭建完成，可以启动 Agressor 端进行相关例如 UI 的修改以及相关功能的二开了</p>\n",
+            "tags": [
+                "安全工具开发",
+                "安全工具开发"
+            ]
+        },
+        {
             "id": "https://shut-td.github.io/%E8%87%AA%E6%88%91%E5%AE%9A%E4%BD%8D-%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B-To-Future/",
             "url": "https://shut-td.github.io/%E8%87%AA%E6%88%91%E5%AE%9A%E4%BD%8D-%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B-To-Future/",
             "title": "自我定位 & 未来展望 To Future~",
