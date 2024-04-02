@@ -8,9 +8,50 @@
     <author>
       <name>shutTD</name>
     </author>
-    <updated>2024-03-31T18:35:14.000Z</updated>
+    <updated>2024-04-02T16:53:28.000Z</updated>
     <category term="ikun~" />
     <category term="UnTivirus" />
+    <entry>
+        <id>https://shut-td.github.io/CMD%E5%91%BD%E4%BB%A4%E6%B7%B7%E6%B7%86/</id>
+        <title>CMD命令混淆</title>
+        <link rel="alternate" href="https://shut-td.github.io/CMD%E5%91%BD%E4%BB%A4%E6%B7%B7%E6%B7%86/"/>
+        <content type="html">&lt;h3 id=&#34;背景&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景&#34;&gt;#&lt;/a&gt; 背景&lt;/h3&gt;
+&lt;p&gt;当我们获取 shell 或者连接到远控时，直接执行高危操作会被拦截因此需要做命令上的混淆来达到静态免杀的效果。&lt;/p&gt;
+&lt;h5 id=&#34;1-转义符号连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-转义符号连接&#34;&gt;#&lt;/a&gt; 1、转义符号连接&lt;/h5&gt;
+&lt;p&gt;即在命令中通过填充  ^  该符号进行混淆&lt;br /&gt;
+ &lt;figure class=&#34;highlight cos&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^h&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^o&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^am&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^i&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx2.sinaimg.cn/large/008DfUDOly8hoczg4gntcj30dk02pglk.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;strong&gt; 注意这里一次只能用一个 ^ 进行连接&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;2-利用set设置变量并使用连续执行达到混淆效果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-利用set设置变量并使用连续执行达到混淆效果&#34;&gt;#&lt;/a&gt; 2、利用 set 设置变量并使用 &amp;amp;&amp;amp; 连续执行达到混淆效果&lt;/h5&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cos&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;set&lt;/span&gt; gg=wh&amp;amp;&amp;amp;&lt;span class=&#34;built_in&#34;&gt;%gg&lt;/span&gt;&lt;span class=&#34;built_in&#34;&gt;%oami&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;再加上&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;的操作&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;set&lt;/span&gt; gg=&lt;span class=&#34;keyword&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^h&lt;/span&gt;^&amp;amp;&amp;amp;&lt;span class=&#34;built_in&#34;&gt;%gg&lt;/span&gt;&lt;span class=&#34;built_in&#34;&gt;%oa&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^mi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://dlink.host/wx1.sinaimg.cn/large/008DfUDOly8hocznijn5cj30ei023weh.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://dlink.host/wx1.sinaimg.cn/large/008DfUDOly8hocznwfke0j30fq02jdfu.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;3-双引号包裹&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-双引号包裹&#34;&gt;#&lt;/a&gt; 3、双引号包裹&lt;/h5&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;wh&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;o&lt;span class=&#34;string&#34;&gt;&amp;quot;ami&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;w&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;h^o&amp;quot;&lt;/span&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;am^i&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hoczp72g9fj30c202swef.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://dlink.host/wx2.sinaimg.cn/large/008DfUDOly8hoczplami2j30dw02et8o.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;4-括号包裹&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-括号包裹&#34;&gt;#&lt;/a&gt; 4、括号包裹&lt;/h5&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight cos&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;((((((whoami))))))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;混合有限只能中间和 ^ 配合&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;((((((&lt;span class=&#34;keyword&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^h&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^o&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^a&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^m&lt;/span&gt;&lt;span class=&#34;symbol&#34;&gt;^i&lt;/span&gt;))))))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx4.sinaimg.cn/large/008DfUDOly8hoczqr3468j30ea02et8p.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://dlink.host/wx4.sinaimg.cn/large/008DfUDOly8hoczr5q7d6j30fg02kt8q.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;5-unicode替换非通用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-unicode替换非通用&#34;&gt;#&lt;/a&gt; 5、Unicode 替换 (非通用)&lt;/h5&gt;
+&lt;p&gt;ʱ ʰ ʲ ʳ ʷ ʸ ˢ ˣ ˡ&lt;br /&gt;
+ʷ 修饰字母小写 W&lt;br /&gt;
+ʸ 修饰字母小写 Y&lt;br /&gt;
+ʰ 修饰字母小写 H&lt;br /&gt;
+ʱ 带钩的修饰字母小写 H&lt;br /&gt;
+ʲ 修饰字母小写 J&lt;br /&gt;
+ʳ 修饰字母小写 R&lt;br /&gt;
+ˡ 修饰字母小写 L&lt;br /&gt;
+ˢ 修饰字母小写 S&lt;br /&gt;
+ˣ 修饰字母小写 X&lt;br /&gt;
+ 这个不太行，适用性太窄&lt;/p&gt;
+&lt;p&gt;这也是我突发奇想试了将近半个多小时试出来总结出来的，结果上网一查早就有大佬总结好了 (emo 了～) 贴个链接把 ==&amp;gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vYXJ0aWNsZXMvbmV0d29yay8yOTEwMjAuaHRtbA==&#34;&gt;https://www.freebuf.com/articles/network/291020.html&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="攻防技巧" scheme="https://shut-td.github.io/categories/%E6%94%BB%E9%98%B2%E6%8A%80%E5%B7%A7/" />
+        <category term="攻防技巧" scheme="https://shut-td.github.io/tags/%E6%94%BB%E9%98%B2%E6%8A%80%E5%B7%A7/" />
+        <updated>2024-04-02T16:53:28.000Z</updated>
+    </entry>
     <entry>
         <id>https://shut-td.github.io/%E6%BA%90%E7%A0%81%E5%8F%8D%E7%BC%96%E8%AF%91%E5%8F%8A%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98-CS%E4%BA%8C%E5%BC%80%E7%B3%BB%E5%88%97/</id>
         <title>源码反编译及搭建问题[CS二开系列]</title>
