@@ -8,9 +8,34 @@
     <author>
       <name>shutTD</name>
     </author>
-    <updated>2024-07-16T02:13:27.000Z</updated>
+    <updated>2024-07-16T07:55:35.000Z</updated>
     <category term="ikun~" />
     <category term="UnTivirus" />
+    <entry>
+        <id>https://shut-td.github.io/%E5%86%85%E7%BD%91frp%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BAsocks5/</id>
+        <title>内网frp代理搭建socks5</title>
+        <link rel="alternate" href="https://shut-td.github.io/%E5%86%85%E7%BD%91frp%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BAsocks5/"/>
+        <content type="html">&lt;h3 id=&#34;本文旨在快速掌握使用frp搭建socks代理实现内网的代理穿透&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文旨在快速掌握使用frp搭建socks代理实现内网的代理穿透&#34;&gt;#&lt;/a&gt; 本文旨在快速掌握使用 frp 搭建 socks 代理，实现内网的代理穿透&lt;/h3&gt;
+&lt;p&gt;frp 用的是老版本的，配置文件如下图所示：&lt;br /&gt;
+&lt;strong&gt;frps.ini：&lt;/strong&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx2.sinaimg.cn/large/008DfUDOly8hrpxrd2fycj310b0l6dgm.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;strong&gt;frpc.ini：&lt;/strong&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hrpxrgypctj30si0il409.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;具体实现步骤主要是要理清楚服务端和客户端到底是谁&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#具体实现步骤主要是要理清楚服务端和客户端到底是谁&#34;&gt;#&lt;/a&gt; 具体实现步骤，主要是要理清楚服务端和客户端到底是谁：&lt;/h4&gt;
+&lt;p&gt;服务端搭建在你能访问到的第一层内网主机，客户端搭建在你要通过代理访问到的第二层内网主机，注意这里客户端配置中的 server_addr 要填写第二层内网主机和第一层内网主机的同一个网段上，也就是要确保服务端和客户端要连通。&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx1.sinaimg.cn/large/008DfUDOly8hrpxrnzf9jj314106an0b.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hrpxrql1n3j312c093whk.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;执行完命令后如果出现以上两张图则成功，随后我们就可以配置代理使用 proxifier 或者 proxychain 进行连接。&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx3.sinaimg.cn/large/008DfUDOly8hrpxrtmlbsj30ft0hl3zp.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+设置好代理后，访问第二层主机上的 web 服务：&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx2.sinaimg.cn/large/008DfUDOly8hrpxrx2tejj310v0u0q3w.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+未设置代理时：&lt;br /&gt;
+&lt;img data-src=&#34;https://dlink.host/wx4.sinaimg.cn/large/008DfUDOly8hrpxrzhox8j310v0u0mz2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</content>
+        <category term="攻防技巧" scheme="https://shut-td.github.io/categories/%E6%94%BB%E9%98%B2%E6%8A%80%E5%B7%A7/" />
+        <category term="攻防技巧" scheme="https://shut-td.github.io/tags/%E6%94%BB%E9%98%B2%E6%8A%80%E5%B7%A7/" />
+        <updated>2024-07-16T07:55:35.000Z</updated>
+    </entry>
     <entry>
         <id>https://shut-td.github.io/CS%E8%BF%9C%E6%8E%A7%E5%85%8D%E6%9D%80%E6%80%9D%E8%B7%AF%E4%B8%8E%E5%AE%9E%E7%8E%B0/</id>
         <title>CS远控免杀思路与实现</title>
